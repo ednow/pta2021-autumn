@@ -44,8 +44,8 @@ MAIN(){
         }
         bool isFind{false};
         long long arrayIdx{};
-        for (long long i = 0; i < N; ++i) {
-            if (queryIdx >= arrays[i].startIdx  and queryIdx < arrays[i + 1].startIdx) {
+        for (long long i = 0; i < N-1; ++i) {
+            if (queryIdx >= arrays[i].startIdx and queryIdx < arrays[i + 1].startIdx) {
                 isFind = true;
                 arrayIdx = i;
                 break;
