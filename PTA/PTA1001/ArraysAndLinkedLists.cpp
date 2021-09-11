@@ -17,34 +17,34 @@
 using namespace std;
 
 struct Array {
-    int start{};
-    int size{};
-    int startIdx{};
+    long long start{};
+    long long size{};
+    long long startIdx{};
 };
 
 int
 MAIN(){
-    int N, K;
+    long long N, K;
     cin >> N >> K;
     vector<Array> arrays(N);
-    int maxSize{};
-    for (int i = 0; i < N; ++i) {
+    long long maxSize{};
+    for (long long i = 0; i < N; ++i) {
         cin >> arrays[i].start;
         cin >> arrays[i].size;
         arrays[i].startIdx = maxSize;
         maxSize += arrays[i].size;
     }
-    vector<int> arrayHasUsed(N, 0);
+    vector<long long> arrayHasUsed(N, 0);
     while (K--) {
-        int queryIdx{};
+        long long queryIdx{};
         cin >> queryIdx;
         if (queryIdx > maxSize-1) {
             cout << "Illegal Access" << endl;
             continue;
         }
         bool isFind{false};
-        int arrayIdx{};
-        for (int i = 0; i < N; ++i) {
+        long long arrayIdx{};
+        for (long long i = 0; i < N; ++i) {
             if (queryIdx >= arrays[i].startIdx  and queryIdx < arrays[i + 1].startIdx) {
                 isFind = true;
                 arrayIdx = i;
