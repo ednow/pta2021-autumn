@@ -12,6 +12,7 @@
 
 #include "iostream"
 #include "vector"
+#include "numeric"
 
 using namespace std;
 
@@ -33,6 +34,7 @@ MAIN(){
         arrays[i].startIdx = maxSize;
         maxSize += arrays[i].size;
     }
+    vector<int> arrayHasUsed(N, 0);
     while (K--) {
         int queryIdx{};
         cin >> queryIdx;
@@ -43,7 +45,7 @@ MAIN(){
         bool isFind{false};
         int arrayIdx{};
         for (int i = 0; i < N; ++i) {
-            if (arrays[i].startIdx >= queryIdx and arrays[i + 1].startIdx < queryIdx) {
+            if (queryIdx >= arrays[i].startIdx  and queryIdx < arrays[i + 1].startIdx) {
                 isFind = true;
                 arrayIdx = i;
                 break;
@@ -51,12 +53,14 @@ MAIN(){
         }
         // 没找到的话就是在最后一个array里面
         if (isFind) {
+            arrayHasUsed[arrayIdx] = true;
             cout << (queryIdx - arrays[arrayIdx].startIdx)*4 + arrays[arrayIdx].start << endl;
         } else {
             cout << (queryIdx - arrays[arrays.size()-1].startIdx)*4 + arrays[arrayIdx].start << endl;
+            arrayHasUsed[arrays.size()-1] = true;
         }
     }
-
+    cout << accumulate(arrayHasUsed.begin(), arrayHasUsed.end(),0, plus<>()) << endl;
     return 0;
 }
 
