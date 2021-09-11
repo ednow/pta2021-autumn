@@ -7,6 +7,7 @@ add_executable(untitled4
         PTA/PTA1001/ArraysAndLinkedLists.cpp
         PTA/PTA1002/StackOfHats.cpp
         PTA/PTA1003/PlaygroundExploration.cpp
+        PTA/PTA1004/SortedCartesianTree.cpp
         )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lgtest -lgtest_main")
