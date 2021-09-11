@@ -1,7 +1,7 @@
 {
   "testCaseId": null,
   "dataPath": null,
-  "module": "PTA.PTA1004.SortedCartesianTree",
+  "module": "PTA.PTA1001.ArraysAndLinkedLists",
   "moduleEntry": null,
   "excludeTestCaseIds": null,
   "isTakeOverOutput": true
